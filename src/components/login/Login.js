@@ -1,28 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-const Login = () => {
-  const [object, setObject] = useState({ username: "", password: "" });
-  const data = {
-    user: {
-      username: "anhmanh",
-      password: "1234",
-    },
-  };
-  const changeInput = (event) => {
-    const { name, value } = event.target;
-    setObject({ ...object, [name]: value });
-    console.log(event.target.value);
-  };
-  function signIn() {
-    console.log("data.user.username" + data.user.username);
-    console.log("data.user.password" + data.user.password);
-    console.log("object.password" + object.password);
-    console.log("object.username" + object.username);
+const Login = ({ data, object, changeInput }) => {
+  let history = useHistory();
+
+  const signIn = () => {
+    // console.log(object.username);
+    // console.log(object.password);
     if (
       object.username === data.user.username &&
       object.password === data.user.password
     ) {
       alert("login success");
+      history.push("/home");
     } else {
       if (object.username !== data.user.username) {
         alert("Wrong username");
@@ -31,7 +21,7 @@ const Login = () => {
         }
       }
     }
-  }
+  };
   const formStyle = {
     display: "flex",
     flexDirection: "column",
@@ -45,10 +35,6 @@ const Login = () => {
     flex: "10",
     height: "50px",
   };
-  const buttonStyle = {
-    height: "50px",
-    background: "#f4f4f4",
-  };
 
   return (
     <form style={formStyle}>
@@ -56,10 +42,9 @@ const Login = () => {
       <label>Username:</label>
       <input
         type="username"
-        name="inputUsername"
+        name="username"
         placeholder="Username"
         required
-        autofocus
         onChange={changeInput}
         style={inputStyle}
       />
@@ -67,7 +52,7 @@ const Login = () => {
       <label> Password:</label>
       <input
         type="password"
-        name="inputPassword"
+        name="password"
         className="form-control"
         placeholder="Password"
         required
