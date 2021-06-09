@@ -1,12 +1,30 @@
 import React, { useState } from "react";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const adminUsername = "manhdd";
-  const changeInputUsername = (event) => {
-    setUsername(event.target.value);
+  const [object, setObject] = useState({ username: "", password: "" });
+  const data = {
+    user: {
+      username: "anhmanh",
+      password: "1234",
+    },
+  };
+  const changeInput = (event) => {
+    const { name, value } = event.target;
+    setObject({ [name]: value });
     console.log(event.target.value);
   };
+  const signIn = () => {
+    if(object.username.equals(data.user.username) && object.password.equals(data.user.password)){
+      alert("login success")
+    }else{
+        if(!object.username.equals(data.user.username){
+      alert("Wrong username")
+      if(!object.password.equals(data.user.password)){
+      alert("wrong password")
+    }
+    }
+    }
+  }
   const formStyle = {
     display: "flex",
     flexDirection: "column",
@@ -31,26 +49,26 @@ const Login = () => {
       <label>Username:</label>
       <input
         type="username"
-        id="inputUsername"
+        name="inputUsername"
         placeholder="Username"
         required
         autofocus
-        onChange="changeInputUsername"
+        onChange={changeInput}
         style={inputStyle}
       />
       <br />
       <label> Password:</label>
       <input
         type="password"
-        id="inputPassword"
+        name="inputPassword"
         className="form-control"
         placeholder="Password"
         required
-        onChange="changeInputPasword"
+        onChange={changeInput}
         style={inputStyle}
       />
       <br />
-      <button style={buttonStyle}>Sign in </button>
+      <button onClick={signIn}>Sign in </button>
     </form>
   );
 };
