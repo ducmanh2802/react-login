@@ -10,19 +10,26 @@ const Login = () => {
   };
   const changeInput = (event) => {
     const { name, value } = event.target;
-    setObject({ [name]: value });
+    setObject({ ...object, [name]: value });
     console.log(event.target.value);
   };
-  const signIn = () => {
-    if(object.username.equals(data.user.username) && object.password.equals(data.user.password)){
-      alert("login success")
-    }else{
-        if(!object.username.equals(data.user.username){
-      alert("Wrong username")
-      if(!object.password.equals(data.user.password)){
-      alert("wrong password")
-    }
-    }
+  function signIn() {
+    console.log("data.user.username" + data.user.username);
+    console.log("data.user.password" + data.user.password);
+    console.log("object.password" + object.password);
+    console.log("object.username" + object.username);
+    if (
+      object.username === data.user.username &&
+      object.password === data.user.password
+    ) {
+      alert("login success");
+    } else {
+      if (object.username !== data.user.username) {
+        alert("Wrong username");
+        if (object.password !== data.user.password) {
+          alert("wrong password");
+        }
+      }
     }
   }
   const formStyle = {
