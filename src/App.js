@@ -3,6 +3,8 @@ import Login from "./components/login/Login";
 import Home from "./components/home/Home";
 import Dashboard from "./components/dashboard/Dashboard";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import CategoryList from "./components/category/CategoryList";
+import CategoryDetail from "./components/category/CategoryDetail";
 
 const App = () => {
   const [object, setObject] = useState({ username: "", password: "" });
@@ -27,6 +29,12 @@ const App = () => {
         </Route>
         <Route path="/dashboard">
           <Dashboard object={object} />
+        </Route>
+        <Route path="/category" exact={true}>
+          <CategoryList />
+        </Route>
+        <Route path="/category/:id" exact={true}>
+          <CategoryDetail />
         </Route>
       </Switch>
     </Router>

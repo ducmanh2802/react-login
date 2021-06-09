@@ -5,8 +5,10 @@ const Login = ({ data, object, changeInput }) => {
   let history = useHistory();
 
   const signIn = () => {
-    // console.log(object.username);
-    // console.log(object.password);
+    // debugger;
+    // console.log(object);
+    // console.log(data);
+
     if (
       object.username === data.user.username &&
       object.password === data.user.password
@@ -27,9 +29,10 @@ const Login = ({ data, object, changeInput }) => {
     flexDirection: "column",
     textAlign: "center",
     justifyContent: "center",
-    width: "800px",
+    width: "300px",
     height: "200px",
     margin: "0 auto",
+    // background: "grey",
   };
   const inputStyle = {
     flex: "10",
@@ -46,7 +49,6 @@ const Login = ({ data, object, changeInput }) => {
         placeholder="Username"
         required
         onChange={changeInput}
-        style={inputStyle}
       />
       <br />
       <label> Password:</label>
@@ -57,7 +59,6 @@ const Login = ({ data, object, changeInput }) => {
         placeholder="Password"
         required
         onChange={changeInput}
-        style={inputStyle}
       />
       <br />
       <button onClick={signIn}>Sign in </button>
