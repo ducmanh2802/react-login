@@ -16,32 +16,32 @@ const CategoryList = () => {
     description: "",
   });
   const handleClick = (e) => {
-    alert(e);
+    // alert(e);
     <Fragment>
-      setCategory( ...category,items[e - 1].id, items[e - 1].name, items[e
-      -1].code, items[e - 1].description );
+      setCategory( id:items[e - 1].id, name:items[e - 1].name, code:items[e
+      -1].code, description:items[e - 1].description );
       <CategoryDetail category={category} />
     </Fragment>;
   };
   return (
     <div className="container">
-      {/* <div className="row"> */}
-      <div className="col-lg-3">
-        <p>Category List:</p>
-        <ul>
-          {items.map((item) => {
-            return (
-              <CategoryItem
-                name={item.name}
-                id={item.id}
-                handleClick={handleClick}
-              />
-            );
-          })}
-        </ul>
+      <div className="row">
+        <div className="col-lg-3">
+          <p>Category List:</p>
+          <ul>
+            {items.map((item) => {
+              return (
+                <CategoryItem
+                  name={item.name}
+                  id={item.id}
+                  handleClick={handleClick}
+                />
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
-    // </div>
   );
 };
 export default CategoryList;
