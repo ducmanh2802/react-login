@@ -5,9 +5,9 @@ const CategoryItem = (props) => {
   return (
     <Fragment>
       <li>
-        <a href="/category/:id">
-          <p>{props.value}</p>
-        </a>
+        <button onClick={(e) => props.handleClick(props.id)}>
+          <p>{props.name}</p>
+        </button>
       </li>
     </Fragment>
   );

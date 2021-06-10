@@ -1,3 +1,10 @@
-a:focus {
-  color: red;
+button:hover {
+  color: burlywood;
+}
+button {
+  border: none;
+  background-color: #ffffff;
+}
+li {
+  list-style: none;
 }

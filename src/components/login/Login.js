@@ -5,15 +5,11 @@ const Login = ({ data, object, changeInput }) => {
   let history = useHistory();
 
   const signIn = () => {
-    // debugger;
-    // console.log(object);
-    // console.log(data);
-
     if (
       object.username === data.user.username &&
       object.password === data.user.password
     ) {
-      alert("login success");
+      // alert("login success");
       history.push("/home");
     } else {
       if (object.username !== data.user.username) {
@@ -33,10 +29,6 @@ const Login = ({ data, object, changeInput }) => {
     height: "200px",
     margin: "0 auto",
     // background: "grey",
-  };
-  const inputStyle = {
-    flex: "10",
-    height: "50px",
   };
 
   return (

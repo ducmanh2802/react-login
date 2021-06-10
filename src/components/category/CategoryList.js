@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import CategoryItem from "../category/CategoryItem";
+import CategoryDetail from "./CategoryDetail";
 
 const CategoryList = () => {
   const items = [
@@ -8,16 +9,39 @@ const CategoryList = () => {
     { id: 3, name: "food", code: "fd", description: "fsdf" },
     { id: 4, name: "laptop", code: "lt", description: "fsda" },
   ];
-  console.log(items);
-  return (
+  const [category, setCategory] = useState({
+    id: "",
+    name: "",
+    code: "",
+    description: "",
+  });
+  const handleClick = (e) => {
+    alert(e);
     <Fragment>
-      <p>Category List:</p>
-      <ul>
-        {items.map((item) => {
-          return <CategoryItem value={item.name} key={item.code} />;
-        })}
-      </ul>
-    </Fragment>
+      setCategory( ...category,items[e - 1].id, items[e - 1].name, items[e
+      -1].code, items[e - 1].description );
+      <CategoryDetail category={category} />
+    </Fragment>;
+  };
+  return (
+    <div className="container">
+      {/* <div className="row"> */}
+      <div className="col-lg-3">
+        <p>Category List:</p>
+        <ul>
+          {items.map((item) => {
+            return (
+              <CategoryItem
+                name={item.name}
+                id={item.id}
+                handleClick={handleClick}
+              />
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+    // </div>
   );
 };
 export default CategoryList;
