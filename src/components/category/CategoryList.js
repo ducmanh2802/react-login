@@ -17,11 +17,13 @@ const CategoryList = () => {
   });
   const handleClick = (e) => {
     // alert(e);
-    <Fragment>
-      setCategory( id:items[e - 1].id, name:items[e - 1].name, code:items[e
-      -1].code, description:items[e - 1].description );
-      <CategoryDetail category={category} />
-    </Fragment>;
+    setCategory(
+      ...category,
+      items[e - 1].id,
+      items[e - 1].name,
+      items[e - 1].code,
+      items[e - 1].description
+    );
   };
   return (
     <div className="container">
@@ -31,11 +33,14 @@ const CategoryList = () => {
           <ul>
             {items.map((item) => {
               return (
-                <CategoryItem
-                  name={item.name}
-                  id={item.id}
-                  handleClick={handleClick}
-                />
+                <div>
+                  <CategoryItem
+                    name={item.name}
+                    id={item.id}
+                    handleClick={handleClick}
+                  />
+                  <CategoryDetail category={category} />
+                </div>
               );
             })}
           </ul>
