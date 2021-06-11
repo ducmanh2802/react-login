@@ -5,6 +5,8 @@ const Login = ({ data, object, changeInput }) => {
   let history = useHistory();
 
   const signIn = () => {
+    console.log(object);
+    console.log(data);
     if (
       object.username === data.user.username &&
       object.password === data.user.password
@@ -20,41 +22,31 @@ const Login = ({ data, object, changeInput }) => {
       }
     }
   };
-  const formStyle = {
-    display: "flex",
-    flexDirection: "column",
-    textAlign: "center",
-    justifyContent: "center",
-    width: "300px",
-    height: "200px",
-    margin: "0 auto",
-    // background: "grey",
-  };
 
   return (
-    <form style={formStyle}>
-      <h2> Please sign in </h2>
-      <label>Username:</label>
+    <div class="form-group">
+      <label for="">Username: </label>
       <input
         type="username"
-        name="username"
+        class="form-control"
+        name=""
+        id=""
+        // aria-describedby="helpId"
         placeholder="Username"
-        required
         onChange={changeInput}
       />
-      <br />
-      <label> Password:</label>
+      <label>Password: </label>
       <input
         type="password"
-        name="password"
-        className="form-control"
-        placeholder="Password"
-        required
+        class="form-control"
+        name=""
+        id=""
+        aria-describedby="helpId"
         onChange={changeInput}
+        placeholder="password"
       />
-      <br />
-      <button onClick={signIn}>Sign in </button>
-    </form>
+      <button onClick={signIn}>Sign In</button>
+    </div>
   );
 };
 export default Login;
