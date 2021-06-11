@@ -63,6 +63,11 @@ export default function TopHeader({ signIn, object, data }) {
               </span>
             </li>
             <li>
+              <a className={welcome} href="/dashboard">
+                Dashbord
+              </a>
+            </li>
+            <li>
               <a className={welcome} href="/" onClick={signOut}>
                 Sign Out
               </a>

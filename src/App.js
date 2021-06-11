@@ -23,15 +23,16 @@ const App = () => {
   };
   return (
     <div className="home">
-      <Header />
       <TopMenu object={object} />
       <Router>
         <Switch>
           <Route exact path="/">
+            <Header />
             <Content />
           </Route>
           <Route exact path="/home">
-            <Dashboard />
+            <Header />
+            <Content />
           </Route>
           <Route path="/login">
             <Login data={data} object={object} changeInput={changeInput} />
@@ -39,7 +40,7 @@ const App = () => {
           <Route path="/sign-up">
             <SignUp />
           </Route>
-          <Route path="/category" exact={true}>
+          <Route path="/dashbord">
             <CategoryList />
           </Route>
         </Switch>

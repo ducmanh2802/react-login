@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
+import CategoryList from "../category/CategoryList";
+
 const Dashboard = ({ object }) => {
   return (
     <Fragment>
-      <p>Dashboard</p>
+      <CategoryList />
     </Fragment>
   );
 };
