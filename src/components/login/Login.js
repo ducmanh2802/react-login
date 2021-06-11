@@ -3,10 +3,7 @@ import { useHistory } from "react-router-dom";
 
 const Login = ({ data, object, changeInput }) => {
   let history = useHistory();
-
   const signIn = () => {
-    console.log(object);
-    console.log(data);
     if (
       object.username === data.user.username &&
       object.password === data.user.password
@@ -29,9 +26,8 @@ const Login = ({ data, object, changeInput }) => {
       <input
         type="username"
         class="form-control"
-        name=""
-        id=""
-        // aria-describedby="helpId"
+        name="username"
+        id="username"
         placeholder="Username"
         onChange={changeInput}
       />
@@ -39,9 +35,8 @@ const Login = ({ data, object, changeInput }) => {
       <input
         type="password"
         class="form-control"
-        name=""
-        id=""
-        aria-describedby="helpId"
+        name="password"
+        id="password"
         onChange={changeInput}
         placeholder="password"
       />
